@@ -12,11 +12,23 @@ Knowing for certain when a bus will arrive ahead of time is a valuable service f
 To create a transit alert for a particular stop, users will text a message to an automated number that includdes the `Stop ID`, `Route Number`, `Scheduled Time`, and `Days of Week`. The service will filter the information, create an alert, and reply back to the user with a confirmation message.
 
 For example, a user might text `subscribe to Stop 1145, Route 51, 4:45pm, weekdays`
-The automated reply would state `subscription confirmed for HSR Bus Stop 1145 (MAIN AT EMERSON), Route 51 (UNIVERSITY, EASTBOUND), at 4:45 PM on weekdays`
+The automated reply would state `Subscription confirmed for HSR Bus Stop 1145 (MAIN AT EMERSON), Route 51 (UNIVERSITY, EASTBOUND), at 4:45 PM on weekdays.`
 
+Alerts will be sent out 10-15 minutes before the scheduled arrival time of the bus each day. An alert might look like:
+
+`Service Alert for HSR Bus Stop 1145 (MAIN AT EMERSON), Route 51 (UNIVERSITY, EASTBOUND), scheduled for 4:45 PM: Bus is running 3 mins late and expected to arrive at 4:48 PM.`
+
+If the expected arrival time of the bus changes between the first alert and the forecasted arrival time, another alert will be sent to the rider within a few minutes of the arrival time.
 
 ## How it Works
 
-The 
+The service Twilio is used to act as a "middle man" between the service and the user. The service sends messages to the Twilio service which texts the message to the user (and vice versa). The user must initiate the service with a text, upon which Twilio will provide our service with the user's phone number and message.
 
-`subscribe to stop 1234`
+When a rider sends a text to the service, the message is parsed and relevant data is extracted.
+
+## Costs
+
+Twilio charges a small fee per text message and can using short code messaging (messages send from a five or six-digit number) send up to 30 messages per second, or 1800 messages per minute; well over the expected requirements for the HSR service.
+
+There is a fixed monthly cost of $3,000 per short code number, plus usage costs of $0.01 per message sent and $0.005 per message received. On this basis, a rider using two alerts per day, five days a week will cost $2.30 per month.
+
