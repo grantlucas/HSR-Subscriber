@@ -100,6 +100,9 @@ class Subscribe
         //$message     = "Subscribe to stop 1234 for route 54 at 9 am monday.";
         $from_number = isset($_GET['From']) ? $_GET['From'] : null;
 
+        if(empty($message) || $empty($from_number))
+            $app->halt(403);
+
         // Parse out the stop number from the message
         $stop_pattern = "/stop\ *([1-9]+)/i";
         $stop_matches = array();
