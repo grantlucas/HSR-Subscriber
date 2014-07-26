@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Subscribe{% endblock %}
+{% block content %}
+  <h1>Subscribe to a bus route</h1>
+  <div>
+    <form action="/subscribe" method="post" accept-charset="utf-8">
+      <div>
+        <label for="phone">Phone Number:</label>
+        <input type="text" name="phone" value="{{phone}}">
+      </div>
+      <div>
+        <label for="stop">Stop Number:</label>
+        <input type="text" name="stop" value="{{stop}}">
+      </div>
+      <div>
+        <label for="route">Route Number:</label>
+        <input type="text" name="route" value="{{route}}">
+      </div>
+      <div>
+        <label for="arrival_time">Time of departure:</label>
+        <input type="text" name="arrival_time" value="{{arrival_time}}">
+      </div>
+      <div>
+        <label for="day">Day of week:</label>
+        <input type="text" name="day" value="{{day}}">
+      </div>
+      <input type="submit" name="Subscribe" value="Subscribe">
+    </form>
+  </div>
+{% endblock %}

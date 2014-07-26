@@ -11,6 +11,10 @@ $app = new \Slim\Slim(array(
 // Set app name
 $app->setName('HSR-Subscriber');
 
+// Read in config file
+$config = parse_ini_file('../config.ini', true);
+$app->user_config = $config;
+
 // Prepare view using Twig
 $app->view(new \Slim\Views\Twig());
 $app->view->parserOptions = array(
@@ -23,7 +27,12 @@ $app->view->parserOptions = array(
 $app->view->parserExtensions = array(new \Slim\Views\TwigExtension());
 
 // Routes
-$app->get('/', function() use ($app){\Controller\Subscribe::index();});
+$app->map('/subscribe', function() use ($app){\Controller\Subscribe::index();})
+  ->name('subscribe')
+  ->via('GET', 'POST');
+
+$app->get('/subscribe/update', function() use ($app){\Controller\Subscribe::update();});
+$app->get('/subscribe/start', function() use ($app){\Controller\Subscribe::start();});
 
 // Run Slim app
 $app->run();
