@@ -24,7 +24,7 @@ If the expected arrival time of the bus changes between the first alert and the 
 
 The service Twilio is used to act as a "middle man" between the service and the user. The service sends messages to the Twilio service which texts the message to the user (and vice versa). The user must initiate the service with a text, upon which Twilio will provide our service with the user's phone number and message.
 
-When a rider sends a text to the service, the message is parsed and relevant data is extracted.
+When a rider sends a text to the service, the message is parsed and relevant data is extracted. Messages sent can be in plain english with the serivce doing the heavy lifting to parse what is being requested.
 
 ## Costs
 
