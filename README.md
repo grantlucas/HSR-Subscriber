@@ -16,7 +16,7 @@ The automated reply would state `Subscription confirmed for HSR Bus Stop 1145 (M
 
 Alerts will be sent out 10-15 minutes before the scheduled arrival time of the bus each day. An alert might look like:
 
-`Service Alert for HSR Bus Stop 1145 (MAIN AT EMERSON), Route 51 (UNIVERSITY, EASTBOUND), scheduled for 4:45 PM: Bus is running 3 mins late and expected to arrive at 4:48 PM.`
+`Service Alert for HSR Bus Stop 1145 (MAIN AT EMERSON), Route 51 (UNIVERSITY, EASTBOUND), scheduled for 4:45 PM: Bus is running 3 mins late. ETA is 4:48 PM.`
 
 If the expected arrival time of the bus changes between the first alert and the forecasted arrival time, another alert will be sent to the rider within a few minutes of the arrival time.
 
@@ -28,7 +28,7 @@ When a rider sends a text to the service, the message is parsed and relevant dat
 
 ## Costs
 
-Twilio charges a small fee per text message and can using short code messaging (messages send from a five or six-digit number) send up to 30 messages per second, or 1800 messages per minute; well over the expected requirements for the HSR service.
+Twilio charges a small fee per text message and can using short code messaging (messages send from a five or six-digit number) send up to 30 messages per second, or 1800 messages per minute; well over the expected requirements for the HSR service. Each message can contain up to 1600 characters; well over the expected length needed.
 
 There is a fixed monthly cost of $3,000 per short code number, plus usage costs of $0.01 per message sent and $0.005 per message received. On this basis, a rider using two alerts per day, five days a week will cost $2.30 per month.
 
