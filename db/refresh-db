@@ -1,0 +1,36 @@
+#!/bin/bash
+
+CONF=site.conf
+. ${CONF}
+cat ${CONF}
+
+DB_FILE=${SITE_NAME}.sql
+
+cp ${DB_FILE}.gz ${DB_FILE}.temp.gz
+
+if [ -f ${DB_FILE}.sql ]; then
+  rm -v ${DB_FILE}.sql
+fi
+
+MYSQL="`which mysql` -v -v"
+HOSTNAME=`hostname`
+
+echo "Installing to database '"${DB_NAME}"' on host '"${DB_HOST}"'"
+
+echo "WARNING: All existing data will be destroyed"
+
+echo "Please enter your MySQL root password: "
+read -s MYSQL_ROOT_PSWD
+
+${MYSQL} -u root -p${MYSQL_ROOT_PSWD} -h ${DB_HOST} -e "drop database ${DB_NAME}"
+${MYSQL} -u root -p${MYSQL_ROOT_PSWD} -h ${DB_HOST} -e "create database ${DB_NAME}"
+${MYSQL} -u root -p${MYSQL_ROOT_PSWD} -h ${DB_HOST} -e "grant all privileges on ${DB_NAME}.* to '${DB_USER}'@'localhost' identified by '${DB_PASS}'"
+${MYSQL} -u root -p${MYSQL_ROOT_PSWD} -h ${DB_HOST} -e "grant all privileges on ${DB_NAME}.* to '${DB_USER}'@'${HOSTNAME}' identified by '${DB_PASS}'"
+
+${MYSQL} -u root -p${MYSQL_ROOT_PSWD} -h ${DB_HOST} -e "flush privileges"
+
+gunzip ${DB_FILE}.temp.gz
+mv -v ${DB_FILE}.temp ${DB_FILE}
+${MYSQL} -u ${DB_USER} -p${DB_PASS} -D ${DB_NAME} -h ${DB_HOST} -e "\. ${DB_FILE}" > /dev/null
+
+rm -v ${DB_FILE}

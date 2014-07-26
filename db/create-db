@@ -1,0 +1,24 @@
+#!/bin/bash
+
+CONF=site.conf
+. ${CONF}
+cat ${CONF}
+
+MYSQL="`which mysql` -v -v"
+HOSTNAME=`hostname`
+
+echo "Press enter to continue"
+read CONTINUE
+
+echo "Installing to database:" ${DB_NAME}
+
+echo "WARNING: All existing data will be destroyed"
+
+echo "Please enter your MySQL root password: "
+read -s MYSQL_ROOT_PSWD
+
+${MYSQL} -u root -p${MYSQL_ROOT_PSWD} -e "create database ${DB_NAME}"
+${MYSQL} -u root -p${MYSQL_ROOT_PSWD} -e "grant all privileges on ${DB_NAME}.* to '${DB_USER}'@'localhost' identified by '${DB_PASS}'"
+${MYSQL} -u root -p${MYSQL_ROOT_PSWD} -e "grant all privileges on ${DB_NAME}.* to '${DB_USER}'@'${HOSTNAME}' identified by '${DB_PASS}'"
+${MYSQL} -u root -p${MYSQL_ROOT_PSWD} -e "flush privileges"
+

@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Special shared hosting refresh script that skips database and user creation
+
+CONF=site.conf
+. ${CONF}
+cat ${CONF}
+
+DB_FILE=${SITE_NAME}.sql
+
+cp ${DB_FILE}.gz ${DB_FILE}.temp.gz
+
+if [ -f ${DB_FILE}.sql ]; then
+  rm -v ${DB_FILE}.sql
+fi
+
+MYSQL="`which mysql` -v -v"
+HOSTNAME=`hostname`
+
+echo "Installing to database '"${DB_NAME}"' on host '"${DB_HOST}"'"
+
+echo "WARNING: All existing data will be destroyed"
+
+echo "Are you sure you want to continue? (y/N)"
+read BOOL_CONFIRM
+
+case ${BOOL_CONFIRM} in
+  Y|y)
+    echo ""
+    echo "Continuing refresh"
+
+    gunzip ${DB_FILE}.temp.gz
+    mv -v ${DB_FILE}.temp ${DB_FILE}
+    ${MYSQL} -u ${DB_USER} -p${DB_PASS} -D ${DB_NAME} -h ${DB_HOST} -e "\. ${DB_FILE}" > /dev/null
+
+    rm -v ${DB_FILE}
+
+    echo ""
+    echo "Completed refreshing the database"
+    ;;
+  n|*)
+    echo ""
+    echo "Aborting refresh"
+esac

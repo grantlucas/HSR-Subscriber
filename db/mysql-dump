@@ -1,0 +1,15 @@
+#!/bin/bash
+
+CONF=site.conf
+. ${CONF}
+cat ${CONF}
+
+DB_FILE=${SITE_NAME}.sql
+
+MYSQLDUMP=`which mysqldump`
+
+echo "Dumping MySQL database: "${DB_NAME}
+
+${MYSQLDUMP} -u ${DB_USER} -p${DB_PASS} -h ${DB_HOST} ${DB_NAME} > ${DB_FILE}
+
+gzip -f ${DB_FILE}
