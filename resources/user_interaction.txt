@@ -11,8 +11,21 @@ Sample alert:
 
 This is an HSR alert 1/5 for bus 51 (eb) at stop 1234 (description) scheduled to arrive at 9:05 am. Estimated time of arrival is 9:04 am. To modify or cancel alerts text "modify 1".
 
-User texts "modify 1": 
-To modify alert for route 51 at stop number 1234 (description) arriving at 9:05 on weekdays: text time, days of the week, and bus route #
+User texts "manage subscriptions": 
+1) Route 51 at stop number 1234 (description) arriving at 9:05 on weekdays
+2) Route 5C at stop number 1234 (description) arriving at 9:05 on weekdays
+3) Route 51 at stop number 1234 (description) arriving at 9:35 on weekdays
+To modify any subscriptions text corresponding number
+
+User texts 1 (for example)
+
+
+
+
+
+
+
+
 
 Sample response: 9:30 am
 Suscription confirmed for route 51, stop 1234 (description) scheduled at 9:30 am on Mondays to Fridays. To add another subscription text "add stop #" to service #. Text "stop" at any time to cancel subscription.
