@@ -23,7 +23,9 @@ $app->view->parserOptions = array(
 $app->view->parserExtensions = array(new \Slim\Views\TwigExtension());
 
 // Routes
-$app->get('/', function() use ($app){\Controller\Subscribe::index();});
+$app->map('/subscribe', function() use ($app){\Controller\Subscribe::index();})
+  ->name('subscribe')
+  ->via('GET', 'POST');
 
 // Run Slim app
 $app->run();

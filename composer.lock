@@ -3,8 +3,44 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "607dfb93fdea7b5876a2d97d35410d87",
+    "hash": "1b97b07ac2fa7ce3bda904ca3564a460",
     "packages": [
+        {
+            "name": "simple-validator/simple-validator",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cangelis/simple-validator.git",
+                "reference": "3dea9dbdacbb1d01aaeb6c6a1347d6fe84459826"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cangelis/simple-validator/zipball/3dea9dbdacbb1d01aaeb6c6a1347d6fe84459826",
+                "reference": "3dea9dbdacbb1d01aaeb6c6a1347d6fe84459826",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SimpleValidator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Can Geliş",
+                    "email": "geliscan@gmail.com"
+                }
+            ],
+            "description": "Yet another validation class for PHP",
+            "time": "2013-11-02 12:51:16"
+        },
         {
             "name": "slim/slim",
             "version": "2.4.3",
@@ -170,9 +206,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "simple-validator/simple-validator": 20
+    },
     "platform": [
 
     ],
