@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+            {#<link rel="stylesheet" href="/style.css" />#}
+            <title>{% block title %}{% endblock %} - HSR Subscriber</title>
+        {% endblock %}
+    </head>
+    <body>
+        {% if flash.errors|length > 0 %}
+          <div id="errors">
+            <ul>
+              {% for error in flash.errors %}
+                <li>{{ error|e }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+        {% if flash.error|length > 0 %}
+          <div id="error">
+            <p>{{ flash.error|e }}</p>
+          </div>
+        {% endif %}
+        {% if flash.info|length > 0 %}
+          <div id="info">
+            <p>{{ flash.info|e }}</p>
+          </div>
+        {% endif %}
+        {% if flash.warning|length > 0 %}
+          <div id="warning">
+            <p>{{ flash.warning|e }}</p>
+          </div>
+        {% endif %}
+        <div id="content">{% block content %}{% endblock %}</div>
+        <div id="footer">
+            {# block footer %}
+                &copy; Copyright 2014 by <a href="http://grantlucas.com">Grant Lucas</a>.
+            {% endblock #}
+        </div>
+    </body>
+</html>
