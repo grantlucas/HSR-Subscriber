@@ -151,7 +151,7 @@ class Subscribe
                     $from_number, // Text this number
                     $response
                 );
-                print $message->sid;
+                $app->halt(200);
             } catch (\Services_Twilio_RestException $e) {
                 print $e->getMessage();
                 print $e->getCode();
@@ -167,7 +167,8 @@ class Subscribe
                     $from_number, // Text this number
                     $response
                 );
-                print $message->sid;
+                //print $message->sid;
+                $app->halt(200);
             } catch (\Services_Twilio_RestException $e) {
                 print $e->getMessage();
                 print $e->getCode();
