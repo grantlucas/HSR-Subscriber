@@ -1,0 +1,24 @@
+{
+    "name": "grantwnlucas/hsr-subscriber",
+    "description": "Subscribing to alerts and anomalies in the Hamilton Street Railway system",
+    "require": {
+        "slim/slim": "2.*",
+        "slim/views": "0.*",
+        "twig/twig": "1.*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Grant Lucas",
+            "email": "contact@grantlucas.com"
+        }
+    ],
+    "autoload": {
+      "psr-4": {
+          "Controller\\": "src/Controller/",
+          "Model\\": "src/Model/",
+          "View\\": "src/View/",
+          "Middleware\\": "src/Middleware/"
+        }
+    }
+}
