@@ -34,7 +34,7 @@ class Subscribe
             $sub->day          = $data['day'];
 
             try {
-            $sub->save();
+                $sub->save();
             } catch (\Exception $e) {
                 echo "<xmp style='background-color: #fff;'>";
                 print_r($e->getMessage());
@@ -49,5 +49,47 @@ class Subscribe
 
         // Render view
         $app->render('subscriber/index.html.twig', $view);
+    }
+
+    /**
+     * Update Subscribers
+     *
+     */
+    public static function update()
+    {
+        $app = \Slim\Slim::getInstance();
+
+        $twilio = new \Services_Twilio($app->user_config['twilio']['sid'],$app->user_config['twilio']['secret']);
+
+        try {
+            $message = $twilio->account->messages->sendMessage(
+                $app->user_config['twilio']['number'], // From a valid Twilio number
+                '2899228662', // Text this number
+                "Hello monkey!"
+            );
+            print $message->sid;
+        } catch (\Services_Twilio_RestException $e) {
+            print $e->getMessage();
+            print $e->getCode();
+
+            switch ($e->getCode())
+            {
+                case '21610':
+                    // User unsubscribed
+                    //TODO: Remove this user's subscriptions from the DB
+                    break;
+            }
+
+        }
+    }
+
+    /**
+     * Start subscription
+     */
+    public static function start()
+    {
+        $app = \Slim\Slim::getInstance();
+
+        $twilio = new \Services_Twilio($app->user_config['twilio']['sid'],$app->user_config['twilio']['secret']);
     }
 }
