@@ -19,7 +19,7 @@ To modify any subscriptions text corresponding number
 
 User texts 1 (for example)
 
-
+To modify alert for route 51 at stop number 1234 (description) arriving at 9:05 on weekdays: text time, days of the week, and bus route #
 
 
 
