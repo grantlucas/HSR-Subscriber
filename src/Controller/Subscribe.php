@@ -97,12 +97,8 @@ class Subscribe
         // From
 
         $message     = isset($_GET['Body']) ? $_GET['Body'] : null;
-        $message     = "Subscribe to stop ";
+        //$message     = "Subscribe to stop 1234 for route 54 at 9 am monday.";
         $from_number = isset($_GET['From']) ? $_GET['From'] : null;
-
-        echo "<xmp style='background-color: #fff;'>";
-        print_r($message);
-        echo "</xmp>";
 
         // Parse out the stop number from the message
         $stop_pattern = "/stop\ *([1-9]+)/i";
@@ -110,20 +106,11 @@ class Subscribe
         preg_match($stop_pattern, $message, $stop_matches);
         $stop_number = isset($stop_matches[1]) ? $stop_matches[1] : "";
 
-        echo "<xmp style='background-color: #fff;'>";
-        print_r("Stop Number: " . $stop_number);
-        echo "</xmp>";
-
         // Parse out the route number from the message
         $route_pattern = "/route\ *([1-9]+)/i";
         $route_matches = array();
         preg_match($route_pattern, $message, $route_matches);
         $route_number = isset($route_matches[1]) ? $route_matches[1] : "";
-
-
-        echo "<xmp style='background-color: #fff;'>";
-        print_r("Route Number: " . $route_number);
-        echo "</xmp>";
 
         // Parse out the time from the message
         $time_pattern = "/([1-9][0-9]?:*[0-9+]*\ *(?:am|pm))/i";
@@ -131,19 +118,11 @@ class Subscribe
         preg_match($time_pattern, $message, $time_matches);
         $time = isset($time_matches[1]) ? $time_matches[1] : "";
 
-        echo "<xmp style='background-color: #fff;'>";
-        print_r("Time: " . $time);
-        echo "</xmp>";
-
         // Parse out the day of the week
         $day_pattern = "/(monday|tuesday|wednesday|thursday|friday|saturday|sunday|mon|tues|wed|thurs|fri|sat|sun)/i";
         $day_matches = array();
         preg_match($day_pattern, $message, $day_matches);
         $day = isset($day_matches[1]) ? $day_matches[1] : "";
-
-        echo "<xmp style='background-color: #fff;'>";
-        print_r("Day: " . $day);
-        echo "</xmp>";
 
         $missing_data = array();
 
@@ -160,9 +139,8 @@ class Subscribe
             $missing_data[] = "day of the week";
 
         if(!empty($missing_data)) {
-            $response = "We are missing some data for your request. Please be sure to include the ";
-            $response .= implode(", ", $missing_data);
-            $response .= " in your request";
+            $response_format = "We are missing some data for your request. Please be sure to include the %s in your request.";
+            $response = sprintf($response_format, implode(", ", $missing_data));
 
             try {
                 $message = $twilio->account->messages->sendMessage(
@@ -174,18 +152,23 @@ class Subscribe
             } catch (\Services_Twilio_RestException $e) {
                 print $e->getMessage();
                 print $e->getCode();
-
-                switch ($e->getCode())
-                {
-                case '21610':
-                    // User unsubscribed
-                    //TODO: Remove this user's subscriptions from the DB
-                    break;
-                }
-
             }
         } else {
             // We have all the required data, send back response
+            $response_format = "You are now subscribed to alerts for route %d at stop %d for arrivals around %s on %s.";
+            $response = sprintf($response_format, $route_number, $stop_number, $time, $day);
+
+            try {
+                $message = $twilio->account->messages->sendMessage(
+                    $app->user_config['twilio']['number'], // From a valid Twilio number
+                    $from_number, // Text this number
+                    $response
+                );
+                print $message->sid;
+            } catch (\Services_Twilio_RestException $e) {
+                print $e->getMessage();
+                print $e->getCode();
+            }
         }
     }
 }
