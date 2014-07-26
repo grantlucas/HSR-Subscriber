@@ -36,8 +36,8 @@ There is a fixed monthly cost of $3,000 per short code number, plus usage costs 
 
 This service stands to gain the most benefit as a gonvernment-funded social welfare project. HSR could fund an operate and finance the service, allowing its users to have a heightened user experience. 
 
-A powerful diversification of this service could be location-based advertising. A user who learns their bus is running 10 minutes late may all of a sudden have extra useful time. As the service is aware of this, it can suggest for example:
+A powerful diversification of this service could be location-based advertising. A user who learns their bus is running 10 minutes late may all of a sudden realize extra useful time. As the service is aware of this, it can suggest for example:
 
-`Your bus will arrive in ten minutes. There is a Tim Hortons 100ft from your location. Why not grab an Iced Cap to cool off?`
+`Your bus will arrive in 10 minutes. There is a Tim Hortons 100ft from your location. Why not grab an Iced Cap to cool off?`
 
 Local businesses would need to be contacted and signed on individualy, but due to the high conversion rates of a service like this, would likely be willing to pay a significant fee. To avoid becoming "annoying", texts could be limited to once per week or some other periodic basis.
