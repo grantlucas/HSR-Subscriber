@@ -1,16 +1,27 @@
-Process:
+///// signing up for alert process:
 
 1) Arrive at stop and text stop number to service #
 2) HSR text alerts: Next busses arriving at this stop are route a: next 3 times; route b: next 3 times. If you want to suscribe to this bus stop text "suscribe". Suscriptions will inform you whether your bus will be arriving early, on time or late.
 3) User texts "suscribe"
-4) To set alert for stop number 1234, departure time, days of the week and bus # (choices are 51 (uni wb), 5c (delaware wb))
+4) To set alert for stop number 1234, reply with bus route number, departure time and days of the week
 5) User texts 51, 9:05 am, weekdays
 6) Alert 1 confirmed for route 51, stop 1234 (description) at 9:05 am on Mondays to Fridays. To add another subscription text "add stop #" to service #. Text "manage subscriptions" to modify or cancel subscriptions.
+Sample confirmations:
+Suscription confirmed for route 51, stop 1234 (description) scheduled at 9:30 am on Mondays to Fridays. To add another subscription text "add stop #" to service #. Text "stop" at any time to cancel subscription.
+
+Sample next bus message (step 2):
+Next bus times for bus stop number 1234 (Main and Emerson)
+Route 5C (Delaware Eastbound): 2:20, 2:30, 2:40
+Route 51 (University Eastbound): 2:25, 2:40, 2:55
 
 Sample alert:
+This is an HSR alert 1/5 for bus 51 (eastbound) at stop 1234 (description) scheduled to arrive at 9:05 am. Estimated time of arrival is 9:04 am. To modify or cancel alerts text "modify 1".
 
-This is an HSR alert 1/5 for bus 51 (eb) at stop 1234 (description) scheduled to arrive at 9:05 am. Estimated time of arrival is 9:04 am. To modify or cancel alerts text "modify 1".
+Sample follow up:
+UPDATE: This is an updated HSR alert 1/5 for bus 51 (eastbound) at stop 1234 (description) scheduled to arrive at 9:05 am. New estimated time of arrival is 9:03 am. To modify or cancel alerts text "modify 1".
 
+
+/// modifying alert process
 User texts "manage subscriptions": 
 1) Route 51 at stop number 1234 (description) arriving at 9:05 on weekdays
 2) Route 5C at stop number 1234 (description) arriving at 9:05 on weekdays
@@ -23,12 +34,6 @@ To modify alert for route 51 at stop number 1234 (description) arriving at 9:05 
 
 
 
-
-
-
-
-Sample response: 9:30 am
-Suscription confirmed for route 51, stop 1234 (description) scheduled at 9:30 am on Mondays to Fridays. To add another subscription text "add stop #" to service #. Text "stop" at any time to cancel subscription.
 
 
 
