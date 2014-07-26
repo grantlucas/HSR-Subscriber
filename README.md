@@ -28,7 +28,7 @@ When a rider sends a text to the service, the message is parsed and relevant dat
 
 ## Costs
 
-Twilio charges a small fee per text message and can using short code messaging (messages send from a five or six-digit number) send up to 30 messages per second per short code number, or 1800 messages per minute; well over the expected requirements for the HSR service. Each message can contain up to 1600 characters; well over the expected length needed.
+Twilio charges a small fee per text message and can using short code messaging (messages send from a five or six-digit number) send up to 30 messages per second, or 1800 messages per minute; well over the expected requirements for the HSR service. Each message can contain up to 1600 characters; well over the expected length needed.
 
 There is a fixed monthly cost of $3,000 per short code number, plus usage costs of $0.01 per message sent and $0.005 per message received. On this basis, a rider using two alerts per day, five days a week will cost $2.30 per month.
 
@@ -41,3 +41,11 @@ A powerful diversification of this service could be location-based advertising. 
 `Your bus will arrive in 10 minutes. There is a Tim Hortons 100ft from your location. Why not grab an Iced Cap to cool off?`
 
 Local businesses would need to be contacted and signed on individualy, but due to the high conversion rates of a service like this, would likely be willing to pay a significant fee. To avoid becoming "annoying", texts could be limited to once per week or some other periodic basis.
+
+## Current Status
+
+Due to the limited time, this repo has been more of a practice and exploration into the possibilities of a project like this instead of a full featured application.
+
+The state of this application has the ability to receive and parse incoming messages requesting subscriptions to alerts. If required information is missing, a response is returned requesting the missing information. On a successful request, a confirmation of the subscription is returned.
+
+At this point, no subscriptions actually activate.
