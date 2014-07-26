@@ -3,16 +3,19 @@ Process:
 1) Arrive at stop and text stop number to service #
 2) HSR text alerts: Next busses arriving at this stop are route a: next 3 times; route b: next 3 times. If you want to suscribe to this bus stop text "suscribe". Suscriptions will inform you whether your bus will be arriving early, on time or late.
 3) User texts "suscribe"
-4) To set alert for stop number 1234, text time, days of the week and bus # (choices are 51 (uni wb), 5c (delaware wb))
+4) To set alert for stop number 1234, departure time, days of the week and bus # (choices are 51 (uni wb), 5c (delaware wb))
 5) User texts 51, 9:05 am, weekdays
-6) Suscription confirmed for route 51, stop 1234 at 9:05 am on Mondays to Fridays. To add another suscription text "add stop #" to service #. Text "stop" at any time to cancel suscription.
+6) Alert 1 confirmed for route 51, stop 1234 (description) at 9:05 am on Mondays to Fridays. To add another suscription text "add stop #" to service #. Text "stop 1" at any time to cancel suscription.
 
 Sample alert:
 
-This is an HSR alert 1/5 for bus 51 (eb) at stop 1234 scheduled to arrive at 9:05 am. Estimated time of arrival is 9:04 am. To modify or cancel alerts text "modify 1".
+This is an HSR alert 1/5 for bus 51 (eb) at stop 1234 (description) scheduled to arrive at 9:05 am. Estimated time of arrival is 9:04 am. To modify or cancel alerts text "modify 1".
 
 User texts "modify 1": 
- To modify alert for route 51 at stop number 1234 arriving at 9:05 on weekdays: text new time, days of the week and bus # (choices are 51 (uni wb), 5c (delaware wb))
+To modify alert for route 51 at stop number 1234 (description) arriving at 9:05 on weekdays: text time, days of the week, and bus route #
+
+Sample response: 9:30 am
+Suscription confirmed for route 51, stop 1234 (description) scheduled at 9:30 am on Mondays to Fridays. To add another suscription text "add stop #" to service #. Text "stop" at any time to cancel suscription.
 
 
 
