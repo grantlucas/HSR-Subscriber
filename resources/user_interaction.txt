@@ -27,10 +27,11 @@ User texts "manage subscriptions":
 2) Route 5C at stop number 1234 (description) arriving at 9:05 on weekdays
 3) Route 51 at stop number 1234 (description) arriving at 9:35 on weekdays
 To modify any subscriptions text corresponding number
+To name subscriptions text "name 1" (e.g. work 1 to set subscription 1 as work bus stop)
 
-User texts 1 (for example)
+Sample confirmation:
+Subscription 1 now set as 'work'. You can now text 'work' anytime to receive next bus information at this stop 1234 (main at emerson)
 
-To modify alert for route 51 at stop number 1234 (description) arriving at 9:05 on weekdays: text time, days of the week, and bus route #
 
 
 
