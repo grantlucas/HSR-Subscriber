@@ -28,7 +28,7 @@ When a rider sends a text to the service, the message is parsed and relevant dat
 
 ## Costs
 
-Twilio charges a small fee per text message and can using short code messaging (messages send from a five or six-digit number) send up to 30 messages per second, or 1800 messages per minute; well over the expected requirements for the HSR service. Each message can contain up to 1600 characters; well over the expected length needed.
+Twilio charges a small fee per text message and can using short code messaging (messages send from a five or six-digit number) send up to 30 messages per second per short code number, or 1800 messages per minute; well over the expected requirements for the HSR service. Each message can contain up to 1600 characters; well over the expected length needed.
 
 There is a fixed monthly cost of $3,000 per short code number, plus usage costs of $0.01 per message sent and $0.005 per message received. On this basis, a rider using two alerts per day, five days a week will cost $2.30 per month.
 
