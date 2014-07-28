@@ -7,7 +7,7 @@
         "twig/twig": "1.*",
         "twilio/sdk": "dev-master"
     },
-    "license": "MIT",
+    "license": "proprietary",
     "authors": [
         {
             "name": "Grant Lucas",
